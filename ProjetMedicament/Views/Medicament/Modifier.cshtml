@@ -1,0 +1,90 @@
+﻿@model Tuple<ProjetMedicament.Models.Metier.Medicament, 
+ProjetMedicament.Models.Metier.Dosage, 
+ProjetMedicament.Models.Metier.TypeIndividu, 
+ProjetMedicament.Models.Metier.Prescrire>
+
+
+
+@{
+    ViewBag.Title = "Modifier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Modifier un médicament</h2>
+
+@if (Model != null)
+{
+    using (Html.BeginForm("Modifier", "Medicament", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card col-8 mx-auto mt-5">
+            <div class="card-body">
+                <h3 class="card-title">Modifier un Medicament</h3>
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <!-- Id Medicament -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="id-manga-input">Id Medicament :</span>
+                        </div>
+                        @Html.EditorFor(tuple => tuple.Item1.Id_medicament, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(tuple => tuple.Item1.Id_medicament, "", new { @class = "text-danger" })
+                        <input name="Id_medicament" type="hidden" value="@Model.Item1.Id_medicament" id="Id_medicament" class="form-control" aria-describedby="id-manga-input" />
+                    </div>
+
+                    <!-- Id Famille -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="id-manga-input">Id Famille :</span>
+                        </div>
+                        @Html.EditorFor(tuple => tuple.Item1.Id_famille, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(tuple => tuple.Item1.Id_famille, "", new { @class = "text-danger" })
+                        <input name="Id_famille" type="hidden" value="@Model.Item1.Id_famille" id="Id_famille" class="form-control" aria-describedby="id-manga-input" />
+                    </div>
+
+                    <!-- Type d'individu' -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="titre-input">Type d'individu' :</span>
+                        </div>
+                        <input name="Type_Individu" type="string" class="form-control" value="@Model.Item3.Lib_type_individu" id="Unite_dosage" />
+                    </div>
+
+                    <!-- Quantité de Dosage -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="titre-input">Quantité de Dosage :</span>
+                        </div>
+                        <input name="Qte_dosage" type="int" class="form-control" value="@Model.Item2.Qte_dosage" id="Qte_dosage" />
+                    </div>
+
+                    <!-- Unité de Dosage -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="titre-input">Unité de Dosage :</span>
+                        </div>
+                        <input name="Unite_dosage" type="string" class="form-control" value="@Model.Item2.Unite_dosage" id="Unite_dosage" />
+                    </div>
+
+                    <!-- Posologie -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="titre-input">Posologie :</span>
+                        </div>
+                        <input name="Posologie" type="string" class="form-control" value="@Model.Item4.Posologie" id="Posologie" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Enregistrer" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
