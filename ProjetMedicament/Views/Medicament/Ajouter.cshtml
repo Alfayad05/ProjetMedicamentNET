@@ -1,0 +1,126 @@
+﻿@model ProjetMedicament.Models.Metier.Resultat;
+
+@{
+    ViewBag.Title = "Ajouter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ajouter un résultat</h2>
+
+@if (Model != null)
+{
+    using (Html.BeginForm("Ajouter", "Resultat", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card col-8 mx-auto mt-5">
+            <div class="card-body">
+                <h3 class="card-title">Ajouter un résultat</h3>
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <!-- Id Medicament -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="id-medicament-input">Id Medicament : </span>
+                        </div>
+                        @Html.EditorFor(model => model.Id_medicament, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Id_medicament, "", new { @class = "text-danger" })
+                    </div>
+                    <!-- Depot Legal -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="depot-legal-input">Depot Legal :</span>
+                        </div>
+                        <input name="Depot_legal" type="text" class="form-control" id="Depot_legal" />
+                    </div>
+                    <!-- Id Famille -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="id-famille-input">Id Famille : </span>
+                        </div>
+                        @Html.EditorFor(model => model.Id_famille, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Id_famille, "", new { @class = "text-danger" })
+                    </div>
+                    <!-- Nom Commercial -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="nom-commercial-input">Nom Commercial :</span>
+                        </div>
+                        <input name="Nom_commercial" type="text" class="form-control" id="Nom_commercial" />
+                    </div>
+                    <!-- Effets -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="effets-input">Effets :</span>
+                        </div>
+                        <input name="Effets" type="text" class="form-control" id="Effets" />
+                    </div>
+                    <!-- Contre Indication -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="contre-indication-input">Contre Indication :</span>
+                        </div>
+                        <input name="Contre_indication" type="text" class="form-control" id="Contre_indication" />
+                    </div>
+                    <!-- Prix Echantillon -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="prix-echantillon-input">Prix Echantillon :</span>
+                        </div>
+                        <input name="Prix_echantillon" type="text" class="form-control" id="Prix_echantillon" />
+                    </div>
+                    <!-- Id Type Individu -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="id-type-individu-input">Id Type Individu : </span>
+                        </div>
+                        @Html.EditorFor(model => model.Id_type_individu, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Id_type_individu, "", new { @class = "text-danger" })
+                    </div>
+                    <!-- Lib Type Individu -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="lib-type-individu-input">Lib Type Individu :</span>
+                        </div>
+                        <input name="Lib_type_individu" type="text" class="form-control" id="Lib_type_individu" />
+                    </div>
+                    <!-- Id Dosage -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="id-dosage-input">Id Dosage : </span>
+                        </div>
+                        @Html.EditorFor(model => model.Id_dosage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Id_dosage, "", new { @class = "text-danger" })
+                    </div>
+                    <!-- Quantite Dosage -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="qte-dosage-input">Quantite Dosage :</span>
+                        </div>
+                        <input name="Qte_dosage" type="text" class="form-control" id="Qte_dosage" />
+                    </div>
+                    <!-- Unite Dosage -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="unite-dosage-input">Unite Dosage :</span>
+                        </div>
+                        <input name="Unite_dosage" type="text" class="form-control" id="Unite_dosage" />
+                    </div>
+                    <!-- Posologie -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2 col-lg-4 col-xl-3">
+                            <span class="input-group-text" id="posologie-input">Posologie :</span>
+                        </div>
+                        <input name="Posologie" type="text" class="form-control" id="Posologie" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Enregistrer" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

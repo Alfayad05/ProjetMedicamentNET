@@ -14,12 +14,6 @@
             </button>
             <a class="navbar-brand" href="@Url.Content("~/")">GSB Medicaments</a>
             <div class="collapse navbar-collapse" id="navbar-collapse-target">
-                <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Login">Se connecter</a>
-                        </li>
-                       
-                </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Medicament" asp-action="Index">Lister</a>
@@ -27,6 +21,15 @@
                     </ul>
 
             </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse-target">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Medicament" asp-action="Ajouter">Ajouter</a>
+                        </li>
+                    </ul>
+
+                </div>
         </div><!--/.container-fluid -->
     </nav>
 </div>
